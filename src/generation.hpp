@@ -236,11 +236,10 @@ public:
         std::visit(visitor, stmt->var);
     }
 
-    [[nodiscard]] std::string gen_prog()
-    {
+    [[nodiscard]] std::string gen_prog() {
         m_output << "global _start\n_start:\n";
 
-        for (const NodeStmt* stmt : m_prog.stmts) {
+        for (const NodeStmt *stmt: m_prog.stmts) {
             gen_stmt(stmt);
         }
 

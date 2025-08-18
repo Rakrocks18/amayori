@@ -5,7 +5,15 @@ _start:
     push rax
     mov rax, 4
     push rax
+    pop rax
+    pop rbx
+    div rbx
+    push rax
     mov rax, 2
+    push rax
+    pop rax
+    pop rbx
+    mul rbx
     push rax
     mov rax, 10
     push rax
@@ -13,17 +21,9 @@ _start:
     pop rbx
     sub rax, rbx
     push rax
-    pop rax
-    pop rbx
-    mul rbx
-    push rax
-    pop rax
-    pop rbx
-    div rbx
-    push rax
     ;; /let
     ;; let
-    mov rax, 71
+    mov rax, 75
     push rax
     ;; /let
     ;; let
@@ -31,12 +31,12 @@ _start:
     push rax
     ;; /let
     ;; if
-    mov rax, 0
+    mov rax, 1
     push rax
     pop rax
     test rax, rax
     jz label0
-    mov rax, 1
+    mov rax, 11
     push rax
     pop rax
     mov [rsp + 8], rax
@@ -70,12 +70,7 @@ label1:
     push rax
     ;; /let
     ;; exit
-    mov rax, 5
-    push rax
-    push QWORD [rsp + 24]
-    pop rax
-    pop rbx
-    add rax, rbx
+    mov rax, 89
     push rax
     mov rax, 60
     pop rdi
